@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date         : Thu Apr 02 00:26:26 2015
+| Date         : Thu Apr 02 01:21:07 2015
 | Host         : rhea running 64-bit Service Pack 1  (build 7601)
 | Command      : report_io -file spi_ctrl_io_placed.rpt
 | Design       : spi_ctrl

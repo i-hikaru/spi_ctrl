@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date         : Thu Apr 02 00:27:36 2015
+| Date         : Thu Apr 02 01:22:17 2015
 | Host         : rhea running 64-bit Service Pack 1  (build 7601)
 | Command      : report_timing_summary -warn_on_violation -file spi_ctrl_timing_summary_routed.rpt -pb spi_ctrl_timing_summary_routed.pb
 | Design       : spi_ctrl
@@ -130,7 +130,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      0.774        0.000                      0                 6405        0.054        0.000                      0                 6405        1.100        0.000                       0                  3897  
+      1.196        0.000                      0                 6917        0.066        0.000                      0                 6917        1.100        0.000                       0                  4153  
 
 
 All user specified timing constraints are met.
@@ -157,8 +157,8 @@ sysclk_p              {0.000 2.500}        5.000           200.000
 Clock                     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----                     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
 sysclk_p                                                                                                                                                                1.100        0.000                       0                     4  
-  clk_out1_clk_wiz_0        0.774        0.000                      0                 5958        0.054        0.000                      0                 5958        1.732        0.000                       0                  3610  
-  clk_out2_clk_wiz_0        5.393        0.000                      0                  414        0.091        0.000                      0                  414        3.358        0.000                       0                   283  
+  clk_out1_clk_wiz_0        1.196        0.000                      0                 6470        0.066        0.000                      0                 6470        1.732        0.000                       0                  3866  
+  clk_out2_clk_wiz_0        5.557        0.000                      0                  414        0.086        0.000                      0                  414        3.358        0.000                       0                   283  
   clkfbout_clk_wiz_0                                                                                                                                                    3.592        0.000                       0                     3  
 
 
@@ -178,7 +178,7 @@ From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS
 
 Path Group          From Clock          To Clock                WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
 ----------          ----------          --------                -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
-**async_default**   clk_out1_clk_wiz_0  clk_out1_clk_wiz_0        0.785        0.000                      0                   33        1.848        0.000                      0                   33  
+**async_default**   clk_out1_clk_wiz_0  clk_out1_clk_wiz_0        1.219        0.000                      0                   33        1.327        0.000                      0                   33  
 
 
 ------------------------------------------------------------------------------------------------
@@ -216,27 +216,27 @@ High Pulse Width  Slow    MMCME2_ADV/CLKIN1    n/a            1.400     2.500   
 From Clock:  clk_out1_clk_wiz_0
   To Clock:  clk_out1_clk_wiz_0
 
-Setup :            0  Failing Endpoints,  Worst Slack        0.774ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.054ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        1.196ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.066ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        1.732ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.774ns  (required time - arrival time)
-  Source:                 SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_CNTRL/regAddr_1/C
+Slack (MET) :             1.196ns  (required time - arrival time)
+  Source:                 SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_TXCNT/memRa_6/C
                             (rising edge-triggered cell FDRE clocked by clk_out1_clk_wiz_0  {rise@0.000ns fall@2.500ns period=5.000ns})
-  Destination:            SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_REG/muxData_30/D
-                            (rising edge-triggered cell FDRE clocked by clk_out1_clk_wiz_0  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_TXCNT/CMDBUF/Mram_RAM2/ADDRBWRADDR[6]
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_out1_clk_wiz_0  {rise@0.000ns fall@2.500ns period=5.000ns})
   Path Group:             clk_out1_clk_wiz_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            5.000ns  (clk_out1_clk_wiz_0 rise@5.000ns - clk_out1_clk_wiz_0 rise@0.000ns)
-  Data Path Delay:        3.922ns  (logic 0.433ns (11.041%)  route 3.489ns (88.959%))
-  Logic Levels:           3  (LUT6=1 MUXF7=1 MUXF8=1)
-  Clock Path Skew:        -0.292ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.550ns = ( 3.450 - 5.000 ) 
-    Source Clock Delay      (SCD):    -1.937ns
+  Data Path Delay:        2.996ns  (logic 0.259ns (8.645%)  route 2.737ns (91.355%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.332ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.528ns = ( 3.472 - 5.000 ) 
+    Source Clock Delay      (SCD):    -1.876ns
     Clock Pessimism Removal (CPR):    -0.680ns
   Clock Uncertainty:      0.060ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -255,18 +255,12 @@ Slack (MET) :             0.774ns  (required time - arrival time)
                                                      -7.786    -5.799 r  System_Clock/U0/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           2.130    -3.669    System_Clock/U0/clk_out1_clk_wiz_0
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093    -3.576 r  System_Clock/U0/clkout1_buf/O
-                         net (fo=3608, routed)        1.639    -1.937    SiTCP_inst/Wrapper_SiTCP/SiTCP/CLK
-    SLICE_X26Y94                                                      r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_CNTRL/regAddr_1/C
+                         net (fo=3864, routed)        1.700    -1.876    SiTCP_inst/Wrapper_SiTCP/SiTCP/CLK
+    SLICE_X2Y93                                                       r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_TXCNT/memRa_6/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X26Y94         FDRE (Prop_fdre_C_Q)         0.223    -1.714 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_CNTRL/regAddr_1/Q
-                         net (fo=147, routed)         3.489     1.774    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_CNTRL/regAddr[1]
-    SLICE_X19Y112        LUT6 (Prop_lut6_I0_O)        0.043     1.817 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_REG/mux23_51/O
-                         net (fo=1, routed)           0.000     1.817    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_REG/mux23_51
-    SLICE_X19Y112        MUXF7 (Prop_muxf7_I1_O)      0.122     1.939 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_REG/mux23_4_f7/O
-                         net (fo=1, routed)           0.000     1.939    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_REG/mux23_4_f7
-    SLICE_X19Y112        MUXF8 (Prop_muxf8_I0_O)      0.045     1.984 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_REG/mux23_2_f8/O
-                         net (fo=1, routed)           0.000     1.984    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_REG/irAddr[3]_X3FData[7]_wide_mux_250_OUT[30]
-    SLICE_X19Y112        FDRE                                         r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_REG/muxData_30/D
+    SLICE_X2Y93          FDRE (Prop_fdre_C_Q)         0.259    -1.617 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_TXCNT/memRa_6/Q
+                         net (fo=14, routed)          2.737     1.119    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_TXCNT/memRa[6]
+    RAMB36_X1Y23         RAMB36E1                                     r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_TXCNT/CMDBUF/Mram_RAM2/ADDRBWRADDR[6]
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_out1_clk_wiz_0 rise edge)
@@ -279,16 +273,17 @@ Slack (MET) :             0.774ns  (required time - arrival time)
                                                      -6.759     0.030 r  System_Clock/U0/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           2.005     2.035    System_Clock/U0/clk_out1_clk_wiz_0
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     2.118 r  System_Clock/U0/clkout1_buf/O
-                         net (fo=3608, routed)        1.332     3.450    SiTCP_inst/Wrapper_SiTCP/SiTCP/CLK
-    SLICE_X19Y112                                                     r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_REG/muxData_30/C
-                         clock pessimism             -0.680     2.771    
-                         clock uncertainty           -0.060     2.710    
-    SLICE_X19Y112        FDRE (Setup_fdre_C_D)        0.048     2.758    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP_INT/SiTCP_INT_REG/muxData_30
+                         net (fo=3864, routed)        1.353     3.472    SiTCP_inst/Wrapper_SiTCP/SiTCP/CLK
+    RAMB36_X1Y23                                                      r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_TXCNT/CMDBUF/Mram_RAM2/CLKBWRCLK
+                         clock pessimism             -0.680     2.792    
+                         clock uncertainty           -0.060     2.731    
+    RAMB36_X1Y23         RAMB36E1 (Setup_ramb36e1_CLKBWRCLK_ADDRBWRADDR[6])
+                                                     -0.416     2.315    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_TXCNT/CMDBUF/Mram_RAM2
   -------------------------------------------------------------------
-                         required time                          2.758    
-                         arrival time                          -1.984    
+                         required time                          2.315    
+                         arrival time                          -1.119    
   -------------------------------------------------------------------
-                         slack                                  0.774    
+                         slack                                  1.196    
 
 
 
@@ -296,20 +291,20 @@ Slack (MET) :             0.774ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.054ns  (arrival time - required time)
-  Source:                 SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/nextRcvSn_10/C
+Slack (MET) :             0.066ns  (arrival time - required time)
+  Source:                 SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/cmpMemWd_6/C
                             (rising edge-triggered cell FDRE clocked by clk_out1_clk_wiz_0  {rise@0.000ns fall@2.500ns period=5.000ns})
-  Destination:            SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_TXCNT/accptdAckNum_10/D
-                            (rising edge-triggered cell FDRE clocked by clk_out1_clk_wiz_0  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM7/SP/I
+                            (rising edge-triggered cell RAMS32 clocked by clk_out1_clk_wiz_0  {rise@0.000ns fall@2.500ns period=5.000ns})
   Path Group:             clk_out1_clk_wiz_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_out1_clk_wiz_0 rise@0.000ns - clk_out1_clk_wiz_0 rise@0.000ns)
-  Data Path Delay:        0.226ns  (logic 0.118ns (52.134%)  route 0.108ns (47.866%))
+  Data Path Delay:        0.194ns  (logic 0.100ns (51.581%)  route 0.094ns (48.419%))
   Logic Levels:           0  
-  Clock Path Skew:        0.140ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -0.569ns
-    Source Clock Delay      (SCD):    -0.487ns
-    Clock Pessimism Removal (CPR):    -0.223ns
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.575ns
+    Source Clock Delay      (SCD):    -0.545ns
+    Clock Pessimism Removal (CPR):    -0.044ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -323,12 +318,12 @@ Slack (MET) :             0.054ns  (arrival time - required time)
                                                      -3.040    -2.149 r  System_Clock/U0/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           0.940    -1.209    System_Clock/U0/clk_out1_clk_wiz_0
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026    -1.183 r  System_Clock/U0/clkout1_buf/O
-                         net (fo=3608, routed)        0.696    -0.487    SiTCP_inst/Wrapper_SiTCP/SiTCP/CLK
-    SLICE_X12Y99                                                      r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/nextRcvSn_10/C
+                         net (fo=3864, routed)        0.638    -0.545    SiTCP_inst/Wrapper_SiTCP/SiTCP/CLK
+    SLICE_X19Y114                                                     r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/cmpMemWd_6/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X12Y99         FDRE (Prop_fdre_C_Q)         0.118    -0.369 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/nextRcvSn_10/Q
-                         net (fo=3, routed)           0.108    -0.260    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/nextRcvSn[10]
-    SLICE_X15Y100        FDRE                                         r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_TXCNT/accptdAckNum_10/D
+    SLICE_X19Y114        FDRE (Prop_fdre_C_Q)         0.100    -0.445 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/cmpMemWd_6/Q
+                         net (fo=1, routed)           0.094    -0.351    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM7/D
+    SLICE_X16Y114        RAMS32                                       r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM7/SP/I
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_out1_clk_wiz_0 rise edge)
@@ -341,15 +336,16 @@ Slack (MET) :             0.054ns  (arrival time - required time)
                                                      -3.493    -2.470 r  System_Clock/U0/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.007    -1.463    System_Clock/U0/clk_out1_clk_wiz_0
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.030    -1.433 r  System_Clock/U0/clkout1_buf/O
-                         net (fo=3608, routed)        0.864    -0.569    SiTCP_inst/Wrapper_SiTCP/SiTCP/CLK
-    SLICE_X15Y100                                                     r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_TXCNT/accptdAckNum_10/C
-                         clock pessimism              0.223    -0.347    
-    SLICE_X15Y100        FDRE (Hold_fdre_C_D)         0.032    -0.315    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_TXCNT/accptdAckNum_10
+                         net (fo=3864, routed)        0.858    -0.575    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM7/WCLK
+    SLICE_X16Y114                                                     r  SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM7/SP/CLK
+                         clock pessimism              0.044    -0.532    
+    SLICE_X16Y114        RAMS32 (Hold_rams32_CLK_I)
+                                                      0.115    -0.417    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM7/SP
   -------------------------------------------------------------------
-                         required time                          0.315    
-                         arrival time                          -0.260    
+                         required time                          0.417    
+                         arrival time                          -0.351    
   -------------------------------------------------------------------
-                         slack                                  0.054    
+                         slack                                  0.066    
 
 
 
@@ -363,10 +359,10 @@ Period:             5.000
 Sources:            { System_Clock/U0/mmcm_adv_inst/CLKOUT0 }
 
 Check Type        Corner  Lib Pin             Reference Pin  Required  Actual  Slack    Location         Pin
-Min Period        n/a     RAMB18E1/CLKARDCLK  n/a            2.095     5.000   2.905    RAMB18_X0Y42     SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/ECIF_RX/PCKT_BUF/Mram_RAM/CLKARDCLK
+Min Period        n/a     RAMB18E1/CLKARDCLK  n/a            2.095     5.000   2.905    RAMB18_X0Y48     SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/ECIF_RX/PCKT_BUF/Mram_RAM/CLKARDCLK
 Max Period        n/a     MMCME2_ADV/CLKOUT0  n/a            213.360   5.000   208.360  MMCME2_ADV_X1Y1  System_Clock/U0/mmcm_adv_inst/CLKOUT0
-Low Pulse Width   Slow    RAMS32/CLK          n/a            0.768     2.500   1.732    SLICE_X42Y110    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM5/SP/CLK
-High Pulse Width  Slow    RAMS32/CLK          n/a            0.768     2.500   1.732    SLICE_X42Y109    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM1/SP/CLK
+Low Pulse Width   Slow    RAMS32/CLK          n/a            0.768     2.500   1.732    SLICE_X12Y114    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM1/SP/CLK
+High Pulse Width  Slow    RAMS32/CLK          n/a            0.768     2.500   1.732    SLICE_X12Y114    SiTCP_inst/Wrapper_SiTCP/SiTCP/SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM1/SP/CLK
 
 
 
@@ -374,28 +370,28 @@ High Pulse Width  Slow    RAMS32/CLK          n/a            0.768     2.500   1
 From Clock:  clk_out2_clk_wiz_0
   To Clock:  clk_out2_clk_wiz_0
 
-Setup :            0  Failing Endpoints,  Worst Slack        5.393ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.091ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        5.557ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.086ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        3.358ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             5.393ns  (required time - arrival time)
+Slack (MET) :             5.557ns  (required time - arrival time)
   Source:                 SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr_10/C
                             (rising edge-triggered cell FDCE clocked by clk_out2_clk_wiz_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/BANK1/Mram_RAM/ENBWREN
+  Destination:            SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/BANK0/Mram_RAM/ENBWREN
                             (rising edge-triggered cell RAMB18E1 clocked by clk_out2_clk_wiz_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_out2_clk_wiz_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            8.000ns  (clk_out2_clk_wiz_0 rise@8.000ns - clk_out2_clk_wiz_0 rise@0.000ns)
-  Data Path Delay:        2.220ns  (logic 0.388ns (17.476%)  route 1.832ns (82.524%))
+  Data Path Delay:        2.027ns  (logic 0.388ns (19.142%)  route 1.639ns (80.858%))
   Logic Levels:           3  (LUT2=1 LUT3=1 LUT6=1)
-  Clock Path Skew:        0.005ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.328ns = ( 6.672 - 8.000 ) 
-    Source Clock Delay      (SCD):    -1.894ns
-    Clock Pessimism Removal (CPR):    -0.561ns
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.327ns = ( 6.673 - 8.000 ) 
+    Source Clock Delay      (SCD):    -1.887ns
+    Clock Pessimism Removal (CPR):    -0.584ns
   Clock Uncertainty:      0.064ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Discrete Jitter          (DJ):    0.108ns
@@ -416,18 +412,18 @@ Slack (MET) :             5.393ns  (required time - arrival time)
                          net (fo=2, routed)           0.132    -3.444    SiTCP_inst/clk_125
     BUFGCTRL_X0Y1        BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.093    -3.351 r  SiTCP_inst/BUFGMUX_gmii_tx_clk/O
-                         net (fo=279, routed)         1.457    -1.894    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII_TX_CLK
-    SLICE_X8Y121                                                      r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr_10/C
+                         net (fo=279, routed)         1.464    -1.887    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII_TX_CLK
+    SLICE_X12Y134                                                     r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr_10/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y121         FDCE (Prop_fdce_C_Q)         0.259    -1.635 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr_10/Q
-                         net (fo=5, routed)           0.492    -1.143    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr[10]
-    SLICE_X8Y122         LUT3 (Prop_lut3_I2_O)        0.043    -1.100 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr[10]_GND_5_o_equal_77_o<10>_SW0/O
-                         net (fo=1, routed)           0.561    -0.539    SiTCP_inst/Wrapper_SiTCP/SiTCP/N60
-    SLICE_X7Y122         LUT6 (Prop_lut6_I5_O)        0.043    -0.496 f  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr[10]_GND_5_o_equal_77_o<10>/O
-                         net (fo=3, routed)           0.399    -0.097    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr[10]_GND_5_o_equal_77_o
-    SLICE_X8Y122         LUT2 (Prop_lut2_I1_O)        0.043    -0.054 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/BANK1/Mram_RAM_ENBWREN_cooolgate_en_gate_19/O
-                         net (fo=1, routed)           0.380     0.326    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/BANK1/Mram_RAM_ENBWREN_cooolgate_en_sig_10
-    RAMB18_X0Y49         RAMB18E1                                     r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/BANK1/Mram_RAM/ENBWREN
+    SLICE_X12Y134        FDCE (Prop_fdce_C_Q)         0.259    -1.628 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr_10/Q
+                         net (fo=5, routed)           0.482    -1.146    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr[10]
+    SLICE_X10Y133        LUT3 (Prop_lut3_I2_O)        0.043    -1.103 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr[10]_GND_5_o_equal_77_o<10>_SW0/O
+                         net (fo=1, routed)           0.367    -0.736    SiTCP_inst/Wrapper_SiTCP/SiTCP/N60
+    SLICE_X10Y133        LUT6 (Prop_lut6_I5_O)        0.043    -0.693 f  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr[10]_GND_5_o_equal_77_o<10>/O
+                         net (fo=3, routed)           0.320    -0.374    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/memRdAddr[10]_GND_5_o_equal_77_o
+    SLICE_X11Y133        LUT2 (Prop_lut2_I1_O)        0.043    -0.331 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/BANK0/Mram_RAM_ENBWREN_cooolgate_en_gate_17/O
+                         net (fo=1, routed)           0.470     0.140    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/BANK0/Mram_RAM_ENBWREN_cooolgate_en_sig_9
+    RAMB18_X0Y52         RAMB18E1                                     r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/BANK0/Mram_RAM/ENBWREN
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_out2_clk_wiz_0 rise edge)
@@ -443,17 +439,17 @@ Slack (MET) :             5.393ns  (required time - arrival time)
                          net (fo=2, routed)           0.119     5.237    SiTCP_inst/clk_125
     BUFGCTRL_X0Y1        BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.083     5.320 r  SiTCP_inst/BUFGMUX_gmii_tx_clk/O
-                         net (fo=279, routed)         1.351     6.672    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII_TX_CLK
-    RAMB18_X0Y49                                                      r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/BANK1/Mram_RAM/CLKBWRCLK
-                         clock pessimism             -0.561     6.111    
-                         clock uncertainty           -0.064     6.047    
-    RAMB18_X0Y49         RAMB18E1 (Setup_ramb18e1_CLKBWRCLK_ENBWREN)
-                                                     -0.328     5.719    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/BANK1/Mram_RAM
+                         net (fo=279, routed)         1.352     6.673    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII_TX_CLK
+    RAMB18_X0Y52                                                      r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/BANK0/Mram_RAM/CLKBWRCLK
+                         clock pessimism             -0.584     6.089    
+                         clock uncertainty           -0.064     6.025    
+    RAMB18_X0Y52         RAMB18E1 (Setup_ramb18e1_CLKBWRCLK_ENBWREN)
+                                                     -0.328     5.697    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/BANK0/Mram_RAM
   -------------------------------------------------------------------
-                         required time                          5.719    
-                         arrival time                          -0.326    
+                         required time                          5.697    
+                         arrival time                          -0.140    
   -------------------------------------------------------------------
-                         slack                                  5.393    
+                         slack                                  5.557    
 
 
 
@@ -461,20 +457,20 @@ Slack (MET) :             5.393ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.091ns  (arrival time - required time)
-  Source:                 SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/memWd_4/C
+Slack (MET) :             0.086ns  (arrival time - required time)
+  Source:                 SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/rsmpBank1LastWrAddr_2/C
                             (rising edge-triggered cell FDRE clocked by clk_out2_clk_wiz_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/TX_FIFO/Mram_RAM/DIADI[4]
-                            (rising edge-triggered cell RAMB18E1 clocked by clk_out2_clk_wiz_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/lastWrAddr_2/D
+                            (rising edge-triggered cell FDRE clocked by clk_out2_clk_wiz_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_out2_clk_wiz_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_out2_clk_wiz_0 rise@0.000ns - clk_out2_clk_wiz_0 rise@0.000ns)
-  Data Path Delay:        0.240ns  (logic 0.091ns (37.911%)  route 0.149ns (62.089%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.032ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -0.483ns
-    Source Clock Delay      (SCD):    -0.460ns
-    Clock Pessimism Removal (CPR):    -0.055ns
+  Data Path Delay:        0.184ns  (logic 0.128ns (69.743%)  route 0.056ns (30.257%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.011ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.506ns
+    Source Clock Delay      (SCD):    -0.484ns
+    Clock Pessimism Removal (CPR):    -0.034ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -491,12 +487,14 @@ Slack (MET) :             0.091ns  (arrival time - required time)
                          net (fo=2, routed)           0.035    -1.148    SiTCP_inst/clk_125
     BUFGCTRL_X0Y1        BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.026    -1.122 r  SiTCP_inst/BUFGMUX_gmii_tx_clk/O
-                         net (fo=279, routed)         0.662    -0.460    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII_TX_CLK
-    SLICE_X7Y126                                                      r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/memWd_4/C
+                         net (fo=279, routed)         0.638    -0.484    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII_TX_CLK
+    SLICE_X19Y135                                                     r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/rsmpBank1LastWrAddr_2/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X7Y126         FDRE (Prop_fdre_C_Q)         0.091    -0.369 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/memWd_4/Q
-                         net (fo=1, routed)           0.149    -0.220    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/memWd[4]
-    RAMB18_X0Y50         RAMB18E1                                     r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/TX_FIFO/Mram_RAM/DIADI[4]
+    SLICE_X19Y135        FDRE (Prop_fdre_C_Q)         0.100    -0.384 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/rsmpBank1LastWrAddr_2/Q
+                         net (fo=1, routed)           0.056    -0.328    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/rsmpBank1LastWrAddr[2]
+    SLICE_X18Y135        LUT3 (Prop_lut3_I2_O)        0.028    -0.300 r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/Mmux_rsmpBank0LastWrAddr[10]_rsmpBank1LastWrAddr[10]_mux_62_OUT41/O
+                         net (fo=1, routed)           0.000    -0.300    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/rsmpBank0LastWrAddr[10]_rsmpBank1LastWrAddr[10]_mux_62_OUT[2]
+    SLICE_X18Y135        FDRE                                         r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/lastWrAddr_2/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_out2_clk_wiz_0 rise edge)
@@ -512,16 +510,15 @@ Slack (MET) :             0.091ns  (arrival time - required time)
                          net (fo=2, routed)           0.039    -1.394    SiTCP_inst/clk_125
     BUFGCTRL_X0Y1        BUFGCTRL (Prop_bufgctrl_I1_O)
                                                       0.030    -1.364 r  SiTCP_inst/BUFGMUX_gmii_tx_clk/O
-                         net (fo=279, routed)         0.882    -0.483    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII_TX_CLK
-    RAMB18_X0Y50                                                      r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/TX_FIFO/Mram_RAM/CLKARDCLK
-                         clock pessimism              0.055    -0.428    
-    RAMB18_X0Y50         RAMB18E1 (Hold_ramb18e1_CLKARDCLK_DIADI[4])
-                                                      0.117    -0.311    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/TX_FIFO/Mram_RAM
+                         net (fo=279, routed)         0.858    -0.506    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII_TX_CLK
+    SLICE_X18Y135                                                     r  SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/lastWrAddr_2/C
+                         clock pessimism              0.034    -0.473    
+    SLICE_X18Y135        FDRE (Hold_fdre_C_D)         0.087    -0.386    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXBUF/lastWrAddr_2
   -------------------------------------------------------------------
-                         required time                          0.311    
-                         arrival time                          -0.220    
+                         required time                          0.386    
+                         arrival time                          -0.300    
   -------------------------------------------------------------------
-                         slack                                  0.091    
+                         slack                                  0.086    
 
 
 
@@ -535,10 +532,10 @@ Period:             8.000
 Sources:            { System_Clock/U0/mmcm_adv_inst/CLKOUT1 }
 
 Check Type        Corner  Lib Pin             Reference Pin  Required  Actual  Slack    Location         Pin
-Min Period        n/a     RAMB18E1/CLKARDCLK  n/a            2.095     8.000   5.905    RAMB18_X0Y50     SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/TX_FIFO/Mram_RAM/CLKARDCLK
+Min Period        n/a     RAMB18E1/CLKARDCLK  n/a            2.095     8.000   5.905    RAMB18_X0Y54     SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/TX_FIFO/Mram_RAM/CLKARDCLK
 Max Period        n/a     MMCME2_ADV/CLKOUT1  n/a            213.360   8.000   205.360  MMCME2_ADV_X1Y1  System_Clock/U0/mmcm_adv_inst/CLKOUT1
-Low Pulse Width   Slow    SRL16E/CLK          n/a            0.642     4.000   3.358    SLICE_X8Y128     SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/Mshreg_irBufSop_1/CLK
-High Pulse Width  Slow    SRL16E/CLK          n/a            0.642     4.000   3.358    SLICE_X8Y128     SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/Mshreg_irBufSop_1/CLK
+Low Pulse Width   Fast    SRL16E/CLK          n/a            0.642     4.000   3.358    SLICE_X10Y134    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/Mshreg_irBufSop_1/CLK
+High Pulse Width  Slow    SRL16E/CLK          n/a            0.642     4.000   3.358    SLICE_X10Y134    SiTCP_inst/Wrapper_SiTCP/SiTCP/GMII/GMII_TXCNT/Mshreg_irBufSop_1/CLK
 
 
 
@@ -570,27 +567,27 @@ Path Group:  **async_default**
 From Clock:  clk_out1_clk_wiz_0
   To Clock:  clk_out1_clk_wiz_0
 
-Setup :            0  Failing Endpoints,  Worst Slack        0.785ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        1.848ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        1.219ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        1.327ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.785ns  (required time - arrival time)
+Slack (MET) :             1.219ns  (required time - arrival time)
   Source:                 sys_rst_reg/C
                             (rising edge-triggered cell FDRE clocked by clk_out1_clk_wiz_0  {rise@0.000ns fall@2.500ns period=5.000ns})
-  Destination:            SiTCP_inst/Wrapper_SiTCP/TIMER/usTim_reg[0]/CLR
+  Destination:            SiTCP_inst/Wrapper_SiTCP/SiTCP/BBT_SiTCP_RST/resetReq_0/PRE
                             (recovery check against rising-edge clock clk_out1_clk_wiz_0  {rise@0.000ns fall@2.500ns period=5.000ns})
   Path Group:             **async_default**
   Path Type:              Recovery (Max at Slow Process Corner)
   Requirement:            5.000ns  (clk_out1_clk_wiz_0 rise@5.000ns - clk_out1_clk_wiz_0 rise@0.000ns)
-  Data Path Delay:        3.634ns  (logic 0.259ns (7.127%)  route 3.375ns (92.873%))
+  Data Path Delay:        3.425ns  (logic 0.259ns (7.562%)  route 3.166ns (92.438%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.308ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.558ns = ( 3.442 - 5.000 ) 
-    Source Clock Delay      (SCD):    -1.929ns
-    Clock Pessimism Removal (CPR):    -0.680ns
+  Clock Path Skew:        -0.118ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.379ns = ( 3.621 - 5.000 ) 
+    Source Clock Delay      (SCD):    -1.938ns
+    Clock Pessimism Removal (CPR):    -0.678ns
   Clock Uncertainty:      0.060ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Discrete Jitter          (DJ):    0.098ns
@@ -608,12 +605,12 @@ Slack (MET) :             0.785ns  (required time - arrival time)
                                                      -7.786    -5.799 r  System_Clock/U0/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           2.130    -3.669    System_Clock/U0/clk_out1_clk_wiz_0
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.093    -3.576 r  System_Clock/U0/clkout1_buf/O
-                         net (fo=3608, routed)        1.647    -1.929    clk_200
-    SLICE_X136Y54                                                     r  sys_rst_reg/C
+                         net (fo=3864, routed)        1.638    -1.938    clk_200
+    SLICE_X138Y83                                                     r  sys_rst_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X136Y54        FDRE (Prop_fdre_C_Q)         0.259    -1.670 f  sys_rst_reg/Q
-                         net (fo=33, routed)          3.375     1.705    SiTCP_inst/Wrapper_SiTCP/TIMER/AR[0]
-    SLICE_X13Y121        FDCE                                         f  SiTCP_inst/Wrapper_SiTCP/TIMER/usTim_reg[0]/CLR
+    SLICE_X138Y83        FDRE (Prop_fdre_C_Q)         0.259    -1.679 f  sys_rst_reg/Q
+                         net (fo=33, routed)          3.166     1.487    SiTCP_inst/Wrapper_SiTCP/SiTCP/RST
+    SLICE_X23Y91         FDPE                                         f  SiTCP_inst/Wrapper_SiTCP/SiTCP/BBT_SiTCP_RST/resetReq_0/PRE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_out1_clk_wiz_0 rise edge)
@@ -626,16 +623,16 @@ Slack (MET) :             0.785ns  (required time - arrival time)
                                                      -6.759     0.030 r  System_Clock/U0/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           2.005     2.035    System_Clock/U0/clk_out1_clk_wiz_0
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.083     2.118 r  System_Clock/U0/clkout1_buf/O
-                         net (fo=3608, routed)        1.324     3.442    SiTCP_inst/Wrapper_SiTCP/TIMER/CLK
-    SLICE_X13Y121                                                     r  SiTCP_inst/Wrapper_SiTCP/TIMER/usTim_reg[0]/C
-                         clock pessimism             -0.680     2.763    
-                         clock uncertainty           -0.060     2.702    
-    SLICE_X13Y121        FDCE (Recov_fdce_C_CLR)     -0.212     2.490    SiTCP_inst/Wrapper_SiTCP/TIMER/usTim_reg[0]
+                         net (fo=3864, routed)        1.503     3.621    SiTCP_inst/Wrapper_SiTCP/SiTCP/CLK
+    SLICE_X23Y91                                                      r  SiTCP_inst/Wrapper_SiTCP/SiTCP/BBT_SiTCP_RST/resetReq_0/C
+                         clock pessimism             -0.678     2.944    
+                         clock uncertainty           -0.060     2.883    
+    SLICE_X23Y91         FDPE (Recov_fdpe_C_PRE)     -0.178     2.705    SiTCP_inst/Wrapper_SiTCP/SiTCP/BBT_SiTCP_RST/resetReq_0
   -------------------------------------------------------------------
-                         required time                          2.490    
-                         arrival time                          -1.705    
+                         required time                          2.705    
+                         arrival time                          -1.487    
   -------------------------------------------------------------------
-                         slack                                  0.785    
+                         slack                                  1.219    
 
 
 
@@ -643,20 +640,20 @@ Slack (MET) :             0.785ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             1.848ns  (arrival time - required time)
+Slack (MET) :             1.327ns  (arrival time - required time)
   Source:                 sys_rst_reg/C
                             (rising edge-triggered cell FDRE clocked by clk_out1_clk_wiz_0  {rise@0.000ns fall@2.500ns period=5.000ns})
-  Destination:            SiTCP_inst/Wrapper_SiTCP/SiTCP/BBT_SiTCP_RST/resetReq_0/PRE
+  Destination:            SiTCP_inst/Wrapper_SiTCP/TIMER/sTim_reg[10]/CLR
                             (removal check against rising-edge clock clk_out1_clk_wiz_0  {rise@0.000ns fall@2.500ns period=5.000ns})
   Path Group:             **async_default**
   Path Type:              Removal (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_out1_clk_wiz_0 rise@0.000ns - clk_out1_clk_wiz_0 rise@0.000ns)
-  Data Path Delay:        1.925ns  (logic 0.118ns (6.129%)  route 1.807ns (93.871%))
+  Data Path Delay:        1.438ns  (logic 0.118ns (8.208%)  route 1.320ns (91.792%))
   Logic Levels:           0  
-  Clock Path Skew:        0.129ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -0.579ns
-    Source Clock Delay      (SCD):    -0.486ns
-    Clock Pessimism Removal (CPR):    -0.223ns
+  Clock Path Skew:        0.180ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.513ns
+    Source Clock Delay      (SCD):    -0.491ns
+    Clock Pessimism Removal (CPR):    -0.203ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -670,12 +667,12 @@ Slack (MET) :             1.848ns  (arrival time - required time)
                                                      -3.040    -2.149 r  System_Clock/U0/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           0.940    -1.209    System_Clock/U0/clk_out1_clk_wiz_0
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026    -1.183 r  System_Clock/U0/clkout1_buf/O
-                         net (fo=3608, routed)        0.697    -0.486    clk_200
-    SLICE_X136Y54                                                     r  sys_rst_reg/C
+                         net (fo=3864, routed)        0.692    -0.491    clk_200
+    SLICE_X138Y83                                                     r  sys_rst_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X136Y54        FDRE (Prop_fdre_C_Q)         0.118    -0.368 f  sys_rst_reg/Q
-                         net (fo=33, routed)          1.807     1.440    SiTCP_inst/Wrapper_SiTCP/SiTCP/RST
-    SLICE_X20Y117        FDPE                                         f  SiTCP_inst/Wrapper_SiTCP/SiTCP/BBT_SiTCP_RST/resetReq_0/PRE
+    SLICE_X138Y83        FDRE (Prop_fdre_C_Q)         0.118    -0.373 f  sys_rst_reg/Q
+                         net (fo=33, routed)          1.320     0.947    SiTCP_inst/Wrapper_SiTCP/TIMER/AR[0]
+    SLICE_X37Y86         FDCE                                         f  SiTCP_inst/Wrapper_SiTCP/TIMER/sTim_reg[10]/CLR
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_out1_clk_wiz_0 rise edge)
@@ -688,15 +685,15 @@ Slack (MET) :             1.848ns  (arrival time - required time)
                                                      -3.493    -2.470 r  System_Clock/U0/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.007    -1.463    System_Clock/U0/clk_out1_clk_wiz_0
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.030    -1.433 r  System_Clock/U0/clkout1_buf/O
-                         net (fo=3608, routed)        0.854    -0.579    SiTCP_inst/Wrapper_SiTCP/SiTCP/CLK
-    SLICE_X20Y117                                                     r  SiTCP_inst/Wrapper_SiTCP/SiTCP/BBT_SiTCP_RST/resetReq_0/C
-                         clock pessimism              0.223    -0.357    
-    SLICE_X20Y117        FDPE (Remov_fdpe_C_PRE)     -0.052    -0.409    SiTCP_inst/Wrapper_SiTCP/SiTCP/BBT_SiTCP_RST/resetReq_0
+                         net (fo=3864, routed)        0.920    -0.513    SiTCP_inst/Wrapper_SiTCP/TIMER/CLK
+    SLICE_X37Y86                                                      r  SiTCP_inst/Wrapper_SiTCP/TIMER/sTim_reg[10]/C
+                         clock pessimism              0.203    -0.311    
+    SLICE_X37Y86         FDCE (Remov_fdce_C_CLR)     -0.069    -0.380    SiTCP_inst/Wrapper_SiTCP/TIMER/sTim_reg[10]
   -------------------------------------------------------------------
-                         required time                          0.409    
-                         arrival time                           1.440    
+                         required time                          0.380    
+                         arrival time                           0.947    
   -------------------------------------------------------------------
-                         slack                                  1.848    
+                         slack                                  1.327    
 
 
 

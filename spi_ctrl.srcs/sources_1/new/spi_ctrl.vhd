@@ -158,10 +158,12 @@ architecture Behavioral of spi_ctrl is
       rbcp_rd    : out    std_logic_vector(7 downto 0);
       rbcp_ack   : out    std_logic;
       regd_adc   : inout  reg_data_adc;
+      regd_dac   : inout  reg_data_dac;
       rbcp_debug : buffer std_logic_vector(7 downto 0));
   end component rbcp;
 
   signal regd_adc   : reg_data_adc;
+  signal regd_dac   : reg_data_dac;
   signal rbcp_debug : std_logic_vector(7 downto 0);
 
 begin
@@ -182,9 +184,9 @@ begin
     end if;
   end process;
 
-  ----------------------------------------------------------------------------
+  ---------------------------------------------------------------------------
   -- SiTCP
-  ----------------------------------------------------------------------------
+  ---------------------------------------------------------------------------
   gmii_1000m <= gpio_dip_sw(0);         -- (0: 100MbE, 1: GbE)
 
   SiTCP_inst : sitcp
@@ -240,6 +242,7 @@ begin
       rbcp_rd    => rbcp_rd,
       rbcp_ack   => rbcp_ack,
       regd_adc   => regd_adc,
+      regd_dac   => regd_dac,
       rbcp_debug => rbcp_debug);
 
   ---------------------------------------------------------------------------

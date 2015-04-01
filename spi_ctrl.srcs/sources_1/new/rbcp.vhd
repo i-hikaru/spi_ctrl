@@ -1,4 +1,4 @@
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 -- Company: 
 -- Engineer: 
 -- 
@@ -16,7 +16,7 @@
 -- Revision 0.01 - File Created
 -- Additional Comments:
 -- 
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
 
 library IEEE;
@@ -47,8 +47,10 @@ entity rbcp is
     rbcp_re    : in     std_logic;
     rbcp_rd    : out    std_logic_vector(7 downto 0);
     rbcp_ack   : out    std_logic;
-    -- ADC register
+    -- ADC/DAC register
     regd_adc   : inout  reg_data_adc;
+    regd_dac   : inout  reg_data_dac;
+    -- Debug I/O
     rbcp_debug : buffer std_logic_vector(7 downto 0));
 end rbcp;
 
@@ -93,70 +95,6 @@ begin
     end if;
   end process;
 
---  process(clk)
---  begin
---    if (clk'event and clk = '1') then
---      if rst = '1' then
---        rbcp_rd    <= (others => '0');
---        rbcp_debug <= (others => '0');
---      else
---        case rbcp_addr is
---          -- test write/read
---          when x"10000000" =>
---            if s_rbcp = wr then
---              rbcp_debug <= rbcp_wd;
---            elsif s_rbcp = rd then
---              rbcp_rd <= rbcp_debug;
---            else
---              null;
---            end if;
-
---          -- ADC register
---          -- e.g., x"0000f0__", __ = register address
---          when x"0000f000" =>
---            if s_rbcp = wr then
---              reg_addr_adc_00 <= rbcp_wd;
---            elsif s_rbcp = rd then
---              rbcp_rd <= reg_addr_adc_00;
---            else
---              null;
---            end if;
-
---          when x"0000f001" =>
---            if s_rbcp = wr then
---              reg_addr_adc_01 <= rbcp_wd;
---            elsif s_rbcp = rd then
---              rbcp_rd <= reg_addr_adc_01;
---            else
---              null;
---            end if;
-
---          when x"0000f002" =>
---            if s_rbcp = wr then
---              reg_addr_adc_03 <= rbcp_wd;
---            elsif s_rbcp = rd then
---              rbcp_rd <= x"03";
---            else
---              null;
---            end if;
-
---            for i in 0 to 23 loop
---              when x"0000f0" & conv_std_logic_vector(i, 8) =>
---              if s_rbcp = wr then
---                reg_addr_adc(i) <= rbcp_wd;
---              elsif s_rbcp = rd then
---                rbcp_rd <= reg_addr_adc(i);
---              else
---                null;
---              end if;
---            end loop;  -- i
-
---          when others => null;
---        end case;
---      end if;
---    end if;
---  end process;
-
   process(clk)
   begin
     if (clk'event and clk = '1') then
@@ -192,7 +130,20 @@ begin
 
       -- DAC register control
       elsif rbcp_addr(31 downto 28) = x"2" then
-        null;
+        for i in 0 to 31 loop
+          case rbcp_addr(7 downto 0) is
+            when conv_std_logic_vector(i, 8) =>
+              if s_rbcp = wr then
+                regd_dac(i) <= rbcp_wd;
+              elsif s_rbcp = rd then
+                rbcp_rd <= regd_dac(i);
+              else
+                null;
+              end if;
+            when others => null;
+          end case;
+        end loop;  -- i
+
       else
         null;
       end if;

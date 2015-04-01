@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date             : Thu Apr 02 00:27:38 2015
+| Date             : Thu Apr 02 01:22:19 2015
 | Host             : rhea running 64-bit Service Pack 1  (build 7601)
 | Command          : report_power -file spi_ctrl_power_routed.rpt -pb spi_ctrl_power_summary_routed.pb
 | Design           : spi_ctrl
@@ -30,9 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.358 |
-| Dynamic (W)              | 0.194 |
+| Total On-Chip Power (W)  | 0.357 |
+| Dynamic (W)              | 0.193 |
 | Device Static (W)        | 0.163 |
+| Total Off-Chip Power (W) | 0.000 |
 | Effective TJA (C/W)      | 1.8   |
 | Max Ambient (C)          | 99.4  |
 | Junction Temperature (C) | 25.6  |
@@ -50,21 +51,21 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.039 |        4 |       --- |             --- |
-| Slice Logic              |     0.006 |     8270 |       --- |             --- |
-|   LUT as Logic           |     0.006 |     3301 |    203800 |            1.61 |
-|   Register               |    <0.001 |     4083 |    407600 |            1.00 |
+| Slice Logic              |     0.006 |     8607 |       --- |             --- |
+|   LUT as Logic           |     0.006 |     3364 |    203800 |            1.65 |
+|   Register               |    <0.001 |     4339 |    407600 |            1.06 |
 |   CARRY4                 |    <0.001 |      257 |     50950 |            0.50 |
 |   LUT as Shift Register  |    <0.001 |       65 |     64000 |            0.10 |
+|   F7/F8 Muxes            |    <0.001 |      129 |    203800 |            0.06 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.12 |
-|   F7/F8 Muxes            |    <0.001 |      112 |    203800 |            0.05 |
 |   LUT as Distributed RAM |    <0.001 |        8 |     64000 |            0.01 |
 |   Others                 |     0.000 |      321 |       --- |             --- |
-| Signals                  |     0.005 |     5363 |       --- |             --- |
+| Signals                  |     0.005 |     5666 |       --- |             --- |
 | Block RAM                |     0.014 |     11.5 |       445 |            2.58 |
 | MMCM                     |     0.108 |        1 |        10 |           10.00 |
-| I/O                      |     0.023 |       43 |       500 |            8.60 |
+| I/O                      |     0.022 |       43 |       500 |            8.60 |
 | Static Power             |     0.163 |          |           |                 |
-| Total                    |     0.358 |          |           |                 |
+| Total                    |     0.357 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -131,9 +132,9 @@ Table of Contents
 +--------------------+------------------------------------+-----------------+
 | Clock              | Domain                             | Constraint (ns) |
 +--------------------+------------------------------------+-----------------+
-| clk_out2_clk_wiz_0 | System_Clock/U0/clk_out2_clk_wiz_0 |             8.0 |
 | sysclk_p           | sysclk_p                           |             5.0 |
 | clk_out1_clk_wiz_0 | System_Clock/U0/clk_out1_clk_wiz_0 |             5.0 |
+| clk_out2_clk_wiz_0 | System_Clock/U0/clk_out2_clk_wiz_0 |             8.0 |
 | clkfbout_clk_wiz_0 | System_Clock/U0/clkfbout_clk_wiz_0 |             5.0 |
 +--------------------+------------------------------------+-----------------+
 
@@ -147,12 +148,12 @@ Table of Contents
 +-----------------------------------------------+-----------+
 | Name                                          | Power (W) |
 +-----------------------------------------------+-----------+
-| spi_ctrl                                      |     0.194 |
-|   RBCP_inst                                   |     0.003 |
+| spi_ctrl                                      |     0.193 |
+|   RBCP_inst                                   |     0.004 |
 |   SiTCP_i_1                                   |     0.000 |
-|   SiTCP_inst                                  |     0.059 |
-|     Wrapper_SiTCP                             |     0.058 |
-|       SiTCP                                   |     0.057 |
+|   SiTCP_inst                                  |     0.057 |
+|     Wrapper_SiTCP                             |     0.056 |
+|       SiTCP                                   |     0.055 |
 |         SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM1 |    <0.001 |
 |         SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM2 |    <0.001 |
 |         SiTCP/TCP/TCP_MNGR/prmtrMem/Mram_RAM3 |    <0.001 |

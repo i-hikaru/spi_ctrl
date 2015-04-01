@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date         : Thu Apr 02 00:25:46 2015
+| Date         : Thu Apr 02 01:20:26 2015
 | Host         : rhea running 64-bit Service Pack 1  (build 7601)
 | Command      : report_utilization -file spi_ctrl_utilization_synth.rpt -pb spi_ctrl_utilization_synth.pb
 | Design       : spi_ctrl
@@ -29,15 +29,15 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 3842 |     0 |    203800 |  1.88 |
-|   LUT as Logic             | 3731 |     0 |    203800 |  1.83 |
+| Slice LUTs*                | 3899 |     0 |    203800 |  1.91 |
+|   LUT as Logic             | 3788 |     0 |    203800 |  1.85 |
 |   LUT as Memory            |  111 |     0 |     64000 |  0.17 |
 |     LUT as Distributed RAM |    8 |     0 |           |       |
 |     LUT as Shift Register  |  103 |     0 |           |       |
-| Slice Registers            | 4283 |     0 |    407600 |  1.05 |
-|   Register as Flip Flop    | 4283 |     0 |    407600 |  1.05 |
+| Slice Registers            | 4539 |     0 |    407600 |  1.11 |
+|   Register as Flip Flop    | 4539 |     0 |    407600 |  1.11 |
 |   Register as Latch        |    0 |     0 |    407600 |  0.00 |
-| F7 Muxes                   |   80 |     0 |    101900 |  0.07 |
+| F7 Muxes                   |   97 |     0 |    101900 |  0.09 |
 | F8 Muxes                   |   32 |     0 |     50950 |  0.06 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -135,18 +135,18 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 3276 |        Flop & Latch |
-| LUT3     | 1022 |                 LUT |
-| LUT6     |  907 |                 LUT |
+| FDRE     | 3532 |        Flop & Latch |
+| LUT3     | 1023 |                 LUT |
+| LUT6     |  942 |                 LUT |
 | FDCE     |  841 |        Flop & Latch |
-| LUT2     |  715 |                 LUT |
+| LUT2     |  719 |                 LUT |
 | LUT1     |  438 |                 LUT |
-| LUT4     |  394 |                 LUT |
-| LUT5     |  330 |                 LUT |
+| LUT4     |  399 |                 LUT |
+| LUT5     |  349 |                 LUT |
 | CARRY4   |  273 |          CarryLogic |
 | FDPE     |  104 |        Flop & Latch |
 | SRL16E   |  103 |  Distributed Memory |
-| MUXF7    |   80 |               MuxFx |
+| MUXF7    |   97 |               MuxFx |
 | FDSE     |   62 |        Flop & Latch |
 | MUXF8    |   32 |               MuxFx |
 | OBUF     |   21 |                  IO |
