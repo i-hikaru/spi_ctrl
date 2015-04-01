@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="rbcp_sim_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="rbcp_sim" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="14" />
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/rbcp_act" type="logic">
+      <obj_property name="ElementShortName">rbcp_act</obj_property>
+      <obj_property name="ObjectShortName">rbcp_act</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/rbcp_addr" type="array">
+      <obj_property name="ElementShortName">rbcp_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rbcp_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/rbcp_we" type="logic">
+      <obj_property name="ElementShortName">rbcp_we</obj_property>
+      <obj_property name="ObjectShortName">rbcp_we</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/rbcp_wd" type="array">
+      <obj_property name="ElementShortName">rbcp_wd[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rbcp_wd[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/rbcp_re" type="logic">
+      <obj_property name="ElementShortName">rbcp_re</obj_property>
+      <obj_property name="ObjectShortName">rbcp_re</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/rbcp_rd" type="array">
+      <obj_property name="ElementShortName">rbcp_rd[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rbcp_rd[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/rbcp_ack" type="logic">
+      <obj_property name="ElementShortName">rbcp_ack</obj_property>
+      <obj_property name="ObjectShortName">rbcp_ack</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/rbcp_wd_debug" type="array">
+      <obj_property name="ElementShortName">rbcp_wd_debug[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rbcp_wd_debug[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/clk_period" type="other">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/rbcp_inst/s_rbcp" type="other">
+      <obj_property name="ElementShortName">s_rbcp</obj_property>
+      <obj_property name="ObjectShortName">s_rbcp</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/rbcp_inst/s_rbcp" type="other">
+      <obj_property name="ElementShortName">s_rbcp</obj_property>
+      <obj_property name="ObjectShortName">s_rbcp</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/rbcp_sim/rbcp_inst/s_rbcp" type="other">
+      <obj_property name="ElementShortName">s_rbcp</obj_property>
+      <obj_property name="ObjectShortName">s_rbcp</obj_property>
+   </wvobject>
+</wave_config>
